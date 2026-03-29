@@ -10,8 +10,9 @@ import subprocess
 import sys
 from pathlib import Path
 
+CSHARPIER_VERSION = "1.2.6"
 
-WORKFLOW_CONTENT = """\
+WORKFLOW_CONTENT = f"""\
 name: Format Check
 
 on:
@@ -21,6 +22,8 @@ on:
 jobs:
   format:
     uses: RadTadDev/cs-formatting/.github/workflows/ci-format.yml@main
+    with:
+        csharpier-version: "{CSHARPIER_VERSION}"
 """
 
 HOOK_CONTENT = """\
@@ -160,7 +163,7 @@ def main():
 
     # Install CSharpier
     print("Installing CSharpier...")
-    result = run(["dotnet", "tool", "install", "csharpier"], check=False)
+    result = run(["dotnet", "tool", "install", "csharpier", "--version", CSHARPIER_VERSION], check=False)
     if result == 0:
         print("  CSharpier installed.\n")
     else:
@@ -196,4 +199,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    

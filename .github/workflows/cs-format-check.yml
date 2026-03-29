@@ -7,3 +7,5 @@ on:
 jobs:
   format:
     uses: RadTadDev/cs-formatting/.github/workflows/ci-format.yml@main
+    with:
+        csharpier-version: "1.2.6"
