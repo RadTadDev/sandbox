@@ -20,7 +20,7 @@ on:
 
 jobs:
   format:
-    uses: RadTadDev/cs-formatting/ci-format.yml@main
+    uses: RadTadDev/cs-formatting/.github/workflows/ci-format.yml@main
 """
 
 HOOK_CONTENT = """\
