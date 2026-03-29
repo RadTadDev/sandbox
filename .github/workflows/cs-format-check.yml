@@ -1,0 +1,9 @@
+name: Format Check
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  format:
+    uses: RadTadDev/cs-formatting/.github/workflows/ci-format.yml@main
