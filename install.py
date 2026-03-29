@@ -20,7 +20,7 @@ on:
 
 jobs:
   format:
-    uses: RadTadDev/cs-formatting/.github/workflows/ci-format.yml@main
+    uses: RadTadDev/cs-formatting/ci-format.yml@main
 """
 
 HOOK_CONTENT = """\
@@ -32,7 +32,7 @@ fi
 echo "Running CSharpier format check..."
 echo "$files" | xargs dotnet csharpier check .
 if [ $? -ne 0 ]; then
-  echo "CSharpier found formatting issues. Run 'dotnet csharpier check .' to see or 'dotnet csharpier . format' to fix."
+  echo "CSharpier found formatting issues. Run 'dotnet csharpier check .' to see or 'dotnet csharpier format .' to fix."
   exit 1
 fi
 """
